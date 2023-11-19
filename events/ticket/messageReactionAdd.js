@@ -12,7 +12,7 @@ module.exports = {
      */
     run: async (client, reaction, user) => {
 
-/*
+
         console.log(`Test passé 🎓1`)
 
         let guild = reaction.message.guild
@@ -59,14 +59,14 @@ module.exports = {
 
         let alreadyOpenned = false;
         guild.channels.cache.filter(c => c.name.startsWith("ticket-")).forEach(c => {
-            if (c.topic === user.id) alreadyOpenned = true
+            if (c.topic === `Ticket de ${user.id}`) alreadyOpenned = true
         })
-        if(alreadyOpenned) return reaction.message.channel.send(`Vous avez déjà un ticket ouvert.`).then(m => m.delete({timeout: 2500}))
+        if(alreadyOpenned) return reaction.message.channel.send(`Vous avez déjà un ticket ouvert.`).then(m => m.delete({timeout: 8000}))
 
         guild.channels.create(`ticket-${user.username}`, {
             type: 'text'
         }).then(async channel => {
-            channel.setTopic(`${user.id}`);
+            channel.setTopic(`Ticket de ${user.id}`);
             const everyone = guild.roles.everyone
             await channel.permissionOverwrites.edit(everyone, {
                 VIEW_CHANNEL: false,
@@ -97,28 +97,39 @@ module.exports = {
             let Embed = new Discord.MessageEmbed()
             .setColor(client.db.get(`color.${guild.id}`) || client.color)
                 .setDescription(bvn_ticket)
-            channel.send(Embed).then(async msg => {
-                await msg.react("🔒")
+            channel.send({ embeds: [Embed] }).then(async Embed => {
+                await Embed.react("🔒")
             })
-
-            if (["🔒"].includes(emoji)) {
+ let ticket_react_close = "🔒"
+ if (ticket_react_close.includes(emoji)) {
                 switch (emoji) {
-                    case "🔒":
+                    case ticket_react_close:
                         try {
                             if (!reaction.message.channel.name.startsWith("ticket-")) return;
-                            for (const reaction of userReaction.values()) {
-                                reaction.users.remove(member.user.id);
-                            }
+            
+                            if (!channel.name.startsWith("ticket-")) return message.channel.send(`Ce n'est pas un ticket.`)
+                
+                            channel.send(`Êtes vous sur de vouloir fermer ce ticket ?, tapez \`${prefix}confirm\` pour confirmer.`).then(async (m) => {
+                                message.channel.awaitMessages({filter: m => m.author.id === message.author.id, max: 1, time: 60000, errors: ["time"]}).then((collected) => {
+                                    if (collected.first().content === `${prefix}confirm`) {
+                                        channel.delete()
+                                    }
+                                }).catch(() => {
+                                    m.edit(`La commande a été annulée.`)
+                                })
+                            })
                         } catch (err) {
-    
+                            console.error(err);
                         }
+                        break;
                 }
-                reaction.message.channel.delete()
             }
+            
+            
         })
     
 
     }
-   */     
+    
     }
 }
