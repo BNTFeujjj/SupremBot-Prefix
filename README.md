@@ -20,15 +20,36 @@
 ## <a id="menu"></a>🔱 » Menu
 
 - [☄・Deploys](#deploys)
-- [🔰・Features](#features)
+- [🔰・Description](#description)
 - [🌌・Discord](https://discord.gg/Rq6mnAtuMc)
 - [🎉・Setting up](#setup)
 - [⚙・Config](#config)
 ## <a id="deploys"></a>☄ » Deploys
 > [Deploy with REPLIT](https://replit.com/)
 
-## <a id="features"></a>🛠 » Features
+## <a id="description"></a>🛠 » Description
+# SupremBot
 
+***- 💥 Un bot 100% Français pas comme les autres !***
+
+***- 💯 Plus de 120 commandes !***
+
+***- 🌐 Des commandes en tout genre, AutoReact, Système de bienvenue perso, Logs, Modération, Général, Backup, Anti-Raid, Gestion***
+
+***- 🌟 Besoin que d'un bot au mieux de plusieurs***
+
+***- 🛡️ Rejoins la communautés de BotifyHost***
+
+# Les commandes
+***SupremBot a beaucoup de fonctionnalités, avec 7 catégories principales :***
+
+- Modération
+- Utilitaires
+- Backup
+- AntiRaid
+- Logs
+- Gestion
+- BotGestion
 
 ## <a id="setup"></a> 📁 » Setting up
 
