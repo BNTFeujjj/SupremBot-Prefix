@@ -33,12 +33,12 @@
 ## <a id="setup"></a> 📁 » Setting up
 
 1. Install [Nodejs](https://nodejs.org/)
-2. Ouvrir le fichier [config.json]([https://discord.gg/Rq6mnAtuMc](https://github.com/BNTFeujjj/SupremBot-Prefix/blob/main/config.json)) avec Visual Studio Code ou un autre éditeur de texte.
-3. Complèter le fichier [config.json]([https://discord.gg/Rq6mnAtuMc](https://github.com/BNTFeujjj/SupremBot-Prefix/blob/main/config.json)).
+2. Ouvrir le fichier [config.json](https://github.com/BNTFeujjj/SupremBot-Prefix/blob/main/config.json) avec Visual Studio Code ou un autre éditeur de texte.
+3. Complèter le fichier [config.json](https://github.com/BNTFeujjj/SupremBot-Prefix/blob/main/config.json).
 
 # <a id="config"></a>⚙ » Config
 
-Si vous voulez changez le fichier [config.json]([https://discord.gg/Rq6mnAtuMc](https://github.com/BNTFeujjj/SupremBot-Prefix/blob/main/config.json)), ouvrez le et dans "buyers" mettez votre ID discord.
+Si vous voulez changez le fichier [config.json](https://github.com/BNTFeujjj/SupremBot-Prefix/blob/main/config.json), ouvrez le et dans "buyers" mettez votre ID discord.
 
 ```js
 {
