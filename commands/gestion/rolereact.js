@@ -33,12 +33,12 @@ if(!staff.includes(message.author.id) && !client.config.buyers.includes(message.
 
 if (pass === false) return message.channel.send(`Vous n'avez pas la permission d'utiliser cette commande.`)
 
-message.reply(`Désactivé temporairement`)
 
-/*
-    let channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]) || message.channel;
-    let messagez = channel.messages.cache.get(args[1])
-    let messageID = messagez.id
+
+let channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]) || message.channel;
+let messagez = await channel.messages.fetch(args[1]).catch(err => console.error(err));
+if (!messagez) return message.channel.send("Message non trouvé");
+let messageID = messagez.id;
     let role = message.guild.roles.cache.get(args[2]) || message.mentions.roles.first()
     let reaction = message.guild.emojis.cache.get(args[3]) || args[3]
     let type = args[4]
@@ -63,7 +63,6 @@ message.reply(`Désactivé temporairement`)
 
     }
 
-    */
     
     }
 }
