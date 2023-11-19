@@ -25,8 +25,8 @@ if(!staff.includes(message.author.id) && !client.config.buyers.includes(message.
 if (pass === false) return message.channel.send(`Vous n'avez pas la permission d'utiliser cette commande.`)
 
         if (message.attachments.size <= 0) {
-        let name = args[1];
-        let emojiarg = args[0] || message.attachments.first()?.url;
+        let name = args[0];
+        let emojiarg = args[1] || message.attachments.first()?.url;
         let emojiparse = Discord.Util.parseEmoji(emojiarg);
         if(!emojiparse) return message.channel.send("Format de l'émoji incorrect");
 
