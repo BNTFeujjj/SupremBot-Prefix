@@ -30,7 +30,7 @@ module.exports = {
         }
         if(bad){
      message.delete()
-     message.channel.send(`${message.author} vous ne pouvez pas ce mots interdits`).then(m => m.delete({timeout: 1500}))
+     message.channel.send(`${message.author}, vous ne pouvez pas dire ce mot interdit`).then(m => m.delete({timeout: 1500}))
         }
 
 
