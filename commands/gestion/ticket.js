@@ -6,7 +6,7 @@ module.exports = {
     aliases: [],
     description: "Permet de gérer les tickets",
     category: "gestion",
-    usage: ["ticket", "ticket title <texte>", "ticket reset_title", "ticket description <texte>", "ticket reset_description", "ticket react", "ticket reset_react", "ticket close", "ticket add", "ticket remove"],
+    usage: ["ticket", "ticket title <texte>", "ticket reset_title", "ticket bvn <texte>", "ticket description <texte>", "ticket reset_description", "ticket react", "ticket reset_react", "ticket close", "ticket add", "ticket remove"],
 
     /**
      * @param {bot} client 
@@ -32,9 +32,8 @@ if(!staff.includes(message.author.id) && !client.config.buyers.includes(message.
 
 if (pass === false) return message.channel.send(`Vous n'avez pas la permission d'utiliser cette commande.`)
 
-message.reply(`Désactivé temporairement`)
 
-/*
+
         let ticket_title = client.db.get(`ticket_title_${message.guild.id}`)
         let ticket_description = client.db.get(`ticket_description_${message.guild.id}`)
         let ticket_react = client.db.get(`ticket_react_${message.guild.id}`)
@@ -94,8 +93,10 @@ message.reply(`Désactivé temporairement`)
 
             let mm = await message.channel.send({ embeds: [Embed], content: `Voici comment le ticket sera affiché :`})
             await mm.react(args.slice(1).join(" "))
-        }
-        else if (reset) {
+    } else if (bvn) {
+        client.db.set(`ticket_bvn_${message.guild.id}`, args.slice(1).join(" "))
+        message.channel.send(`Le message de bienvenue (afficher en embed) des tickets a été modifié.`)
+     } else if (reset) {
             client.db.delete(`ticket_${message.guild.id}`)
             client.db.delete(`ticket_title_${message.guild.id}`)
             client.db.delete(`ticket_description_${message.guild.id}`)
@@ -170,14 +171,9 @@ message.reply(`Désactivé temporairement`)
                     m.edit(`La commande a été annulée.`)
                 })
             })
-                
-
-
-        } else if (bvn) {
-            client.db.set(`ticket_bvn_${message.guild.id}`, args.slice(1).join(" "))
-            message.send(`Le message de bienvenue des tickets a été modifié.`)
+            
         }
              
-*/
+
     }
 }
